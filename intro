@@ -1,0 +1,89 @@
+
+# html5 video on web pages [link >> https://www.youtube.com/watch?v=Sq4NFODUjGg]
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta chatset="UTF-8">
+    <title>html video element</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        video{
+
+        }
+    </style>
+  </head>
+
+  <body>
+     <header>
+        <h1>HTML Video Element </h1>
+     </header>
+     <main>
+         <video>
+            <source src="./video/lion-sample.webm" type="video/webm"/>
+            <source src="./video/lion-sample.ogg" type="video/ogg"/>
+            <source src="./video/lion-sample.mp4" type="video/mp4"/>
+            <source src="./video/lion-sample.3gp" type="video/3gp"/>
+            <p><a href="" download>Download the Video</a></p>
+         </video>
+     </main>
+  </body>
+</html>
+
+
+
+ඉහත video ටැගය තුල video format හතරක source අඩංගු කර ඇත. මෙහිදී අදාළ format එක browser යේ ක්‍රියා නොකරයි නම් 
+පිලිවෙලින් ඊළඟට අඩංගු කර ඇති source එකේ video format එක සමග ක්‍රියා කරයි. ඉහත video format කිසිවක් browserයේ 
+ක්‍රියාත්මක නොවේ නම් පිලිවෙලින් අවසානයේ ඇති <p> තුල ඇති href යොමුව මගින් video එක download කිරීම ඇරඹේ.
+
+video ටැගයට එක් කල හැකි ගුණාංග(attribute) ගැන සලකා බලමු.
+<video controls muted loop autoplay poster="archer-bob.jpg" ></video>
+controls -controls අවයව දිස්කිරීමට. 
+muted -muted ආරම්භය නිහඩ කිරීමට.
+loop -loop ලෙස ධාවනය කිරීමට.
+autoplay muted -load වූ වහාම autoplay කිරීමට. 
+poster -video ව ධාවනය කිරීමට පෙර දිස්කරන පින්තුරය දීමට.
+crossorigin="anonymous" -origin එක r-click කර විවෘත කිරීමේ තහනම.
+
+ # Controlling HTML5 Video and Captions with JS
+ [link >> https://www.youtube.com/watch?v=DcWsUyhBykE ]
+ 
+video ටැගය තුලට පහත පරිදි track ටැගයේ ගුණාංග අන්තර්ගත කල විට html5 ධාවකයේ උපසිරස දිස්කරගත හැකිය. 
+    <video   controls>
+      <source src="lion-sample.mp4" type="video/mp4"/>
+      <track  default
+          src="caption.vtt"
+          kind="captions"
+          srclang="en"
+          label="English Captions"/>
+
+      <p><a href="" download>Download the Video</a></p>
+   </video>
+ 
+src="caption.vtt" - උපසිරස ගොනුවේ යොමුව 
+label="English Captions" - html5 ධාවකයේ තේරීම් ලේබල 
+ 
+ 
+  ඉහත යෙදු උපසිරස(captions) සඳහා css style දීමට භාවිතා කරන්නේ ::cue නම් selector එක වේ. 
+     <style>
+        video{
+          width: auto;
+          height: 300px;
+        }
+        ::cue{
+          font-size: 20px;
+          color: #333;
+          background-color: rgba(255, 200, 10, 0.64);
+        }
+        ::cue(b){
+          text-transform: uppercase;
+          color: red;
+        }
+        ::cue(#\2){
+          color: #bada55;
+        }
+    </style>
+    
+ ::cue(b) -caption.vtt ගොනුවේ  bold(<b></b>) අකුරු සඳහා යෙදුවද firefox හි ක්‍රියා නොකරයි.
+ 
+
